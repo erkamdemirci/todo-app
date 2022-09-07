@@ -72,32 +72,31 @@ export const Checkbox = styled.div`
     width: 25px;
     height: 25px;
     margin: 0 0 -9px 0;
-    &:before,
-    &:after {
-      @include transition(all 0.3s ease-in-out);
-      content: '';
-      position: absolute;
-      z-index: 1;
-      width: 1.3rem;
-      height: 1.3rem;
-      background: white;
-      border: 1px solid ${({ theme }) => theme.text};
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    &:after {
-      z-index: 0;
-      border: none;
-    }
+  }
+
+  .checkbox-flip + label span:before,
+  .checkbox-flip + label span:after {
+    transition: all 0.3s ease-in-out;
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 1.3rem;
+    height: 1.3rem;
+    background: white;
+    border: 1px solid ${({ theme }) => theme.text};
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .checkbox-flip + label span:after {
+    z-index: 0;
+    border: none;
   }
 
   .checkbox-flip:checked + label {
     opacity: 10%;
   }
-  .checkbox-flip:checked + label span {
-    &:before {
-      @include transform(rotateY(180deg));
-      background: ${({ theme }) => theme.darkBorder};
-    }
+  .checkbox-flip:checked + label span:before {
+    transform: rotateY(180deg);
+    background: ${({ theme }) => theme.darkBorder};
   }
 `;
